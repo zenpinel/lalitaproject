@@ -1,1 +1,4 @@
 n = print("number of word : " int(input()))
+
+import random
+import string
