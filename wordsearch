@@ -1,4 +1,3 @@
-n = print("number of word : " int(input()))
-
+n = print("number of word : ")
 import random
 import string
