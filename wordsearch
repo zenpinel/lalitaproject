@@ -1,2 +1,19 @@
-n = print("number of word : ")
-print ("hell0")
+n = int(input("number of word :"))
+m = int(input("grid size :"))
+
+import random
+import string
+
+from pprint import pprint
+
+handle = open('/etc/English_word.pdf/words')
+words = handle.readlines()
+handle.close()
+
+words = [random.choice(words).upper().replace("'",'').strip() for _ in range(n)]
+
+grid_size = m
+grid = [['_' for _ in range(grid_size)] for _ in range(grid_size)]
+
+
+
