@@ -5,13 +5,13 @@ import random
 import string
 
 from pprint import pprint
-'''''
-handle = open('/etc/English_word.pdf/words')
+''''
+handle = open('/etc./words')
 words = handle.readlines()
 handle.close()
 
 words = [random.choice(words).upper().replace("'",'').strip() for _ in range(n)]
-'''
+''''
 grid_size = m
 grid = [['_' for _ in range(grid_size)] for _ in range(grid_size)]
 
@@ -57,6 +57,7 @@ for word in words:
         #check if the word can place in grid
         for i in range(word_lenght):
             character = word[i]
+
             new_position_x = x_position + i*step_x
             new_position_y = y_position + i*step_y
 
@@ -78,3 +79,11 @@ for word in words:
                 grid[new_position_x][new_position_y] = character
             placed = True
 
+#fill in the grid
+for x in range(grid_size):
+    for y in range(grid_size):
+        if ( grid[x][y] == '_'):
+            gird[x][y] = random.choice(string.uppercase)
+print_grid()
+print ("words:")
+pprint(words)
