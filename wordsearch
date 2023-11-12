@@ -29,7 +29,8 @@ for word in words:
 
     placed = False
     while not placed:
-        #position
+
+        #word position
         orientation = random.choice(orientations)
         if orientation == 'leftright':
             step_x = 1
@@ -55,6 +56,7 @@ for word in words:
             continue
 
         failed = False
+
         #check if the word can place in grid
         for i in range(word_lenght):
             character = word[i]
@@ -81,10 +83,13 @@ for word in words:
             placed = True
 
 #fill in the grid
+
+uppercase_letters = string.ascii_uppercase
+
 for x in range(grid_size):
     for y in range(grid_size):
         if ( grid[x][y] == '_'):
-            grid[x][y] = random.choice(string)
+            grid[x][y] = random.choice(uppercase_letters)
 
 print_grid()
 print ("words:")
