@@ -5,13 +5,14 @@ import random
 import string
 
 from pprint import pprint
-''''
-handle = open('/etc./words')
+
+#import vocab file
+handle = open('commonword.txt','r')
 words = handle.readlines()
 handle.close()
 
 words = [random.choice(words).upper().replace("'",'').strip() for _ in range(n)]
-''''
+
 grid_size = m
 grid = [['_' for _ in range(grid_size)] for _ in range(grid_size)]
 
@@ -29,26 +30,26 @@ for word in words:
     placed = False
     while not placed:
         #position
-        orientations = random.choice(orieantations)
-        if orientations == 'leftright':
+        orientation = random.choice(orientations)
+        if orientation == 'leftright':
             step_x = 1
             step_y = 0
-        if orientations == 'updown':
+        if orientation == 'updown':
             step_x = 0
             step_y = 1
-        if orientations == 'diagnoldown':
+        if orientation == 'diagnoldown':
             step_x = 1
             step_y = 1
-        if orientations == 'diagnolup':
+        if orientation == 'diagnolup':
             step_x = 1
             step_y = -1
-        x_position = random.radint(0,grid_size)
-        y_position = random.radint(0,grid_size)
+        x_position = random.randint(0,grid_size)
+        y_position = random.randint(0,grid_size)
 
         ending_x = x_position + word_lenght*step_x
         ending_y = y_position + word_lenght*step_y
 
-        if ending_x < 0 or ending_y >= grid_size:
+        if ending_x < 0 or ending_x >= grid_size:
             continue
         if ending_y < 0 or ending_y >= grid_size:
             continue
@@ -83,7 +84,8 @@ for word in words:
 for x in range(grid_size):
     for y in range(grid_size):
         if ( grid[x][y] == '_'):
-            gird[x][y] = random.choice(string.uppercase)
+            grid[x][y] = random.choice(string)
+
 print_grid()
 print ("words:")
 pprint(words)
